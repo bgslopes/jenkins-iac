@@ -22,6 +22,8 @@ module "ec2_instance" {
   monitoring             = true
   vpc_security_group_ids = [module.jenkins_sg.security_group_id]
   subnet_id              = "subnet-0680362bc990c275c"
+  user_data              = file("./dependencias.sh")
+  iam_instance_profile   = "LabInstanceProfile"
 
   tags = {
     Name   = "Jenkins-Server"
